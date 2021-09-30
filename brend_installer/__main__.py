@@ -97,12 +97,13 @@ if __name__ == "__main__":
     basarili(LANG['SUCCESS_APP'])
     onemli(LANG['DOWNLOADING'])
 
+    #Kohne repo https://github.com/brendsupport/brenduserbot
     #Əkənin varyoxunu sikim peyser ble
     #Peyserler:
     #1) Fərid - https://github.com/FaridDadashzade/Installer/blob/1ed448a46d35f4bea4af87ee3b6ba6d684a3e990/cyber_installer/__main__.py#L107
     if os.path.isdir("./brenduserbot/"):
         rm_r("./brenduserbot/")
-    repo = eval('Repo.clone_from("https://github.com/brendsupport/brenduserbot", "./brenduserbot/", branch="master")')
+    repo = eval('Repo.clone_from("https://github.com/sekret666/brenduserbot", "./brenduserbot/", branch="master")')
     basarili(LANG['DOWNLOADED'])
     onemli(LANG['DEPLOYING'])
     app = hgit(heroku, repo, appname)
