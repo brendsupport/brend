@@ -177,7 +177,7 @@ if __name__ == "__main__":
                 config['BOT_TOKEN'] = helpbot
                 botusername = str(soru(LANG['BOT_USERNAMESI']))
                 config['BOT_USERNAME'] = botusername
-                basarili(LANG['BOT_USERNAME_SUCCESFULY']
+                basarili(LANG['BOT_USERNAME_SUCCESFULY'])
 
 
             bilgi(f"\[1] {LANG['BOTLOG']}\n\[2] {LANG['NO_SUP']}\n\[3] {LANG['HELP_BOT']}\n\[4] {LANG['CLOSE']}")
