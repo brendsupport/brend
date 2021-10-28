@@ -98,8 +98,7 @@ if __name__ == "__main__":
     onemli(LANG['DOWNLOADING'])
 
     #Əkənin varyoxunu sikim peyser ble
-    #Peyserler:
-    #1) Fərid - https://github.com/FaridDadashzade/Installer/blob/1ed448a46d35f4bea4af87ee3b6ba6d684a3e990/cyber_installer/__main__.py#L107
+    #It is forbidden to copy this code
     if os.path.isdir("./brenduserbot/"):
         rm_r("./brenduserbot/")
     repo = eval('Repo.clone_from("https://github.com/brendsupport/brenduserbot", "./brenduserbot/", branch="master")')
