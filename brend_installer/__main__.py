@@ -175,8 +175,7 @@ if __name__ == "__main__":
             elif Cevap == "3":
                 helpbot = str(soru(LANG['BOT_TOKENI']))
                 config['BOT_TOKEN'] = helpbot
-                basarili(LANG['BOT_TOKEN_SUCCESFULY'])
-                botusername = str(soru(LANG['BOT_USERNAMESI']
+                botusername = str(soru(LANG['BOT_USERNAMESI']))
                 config['BOT_USERNAME'] = botusername
                 basarili(LANG['BOT_USERNAME_SUCCESFULY']
 
