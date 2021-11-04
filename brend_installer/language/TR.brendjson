@@ -33,7 +33,7 @@
             "AFTER_INSTALL": "Kurulum sonrasını başlatmak ister misiniz?",
             "HELP_BOT": "Yardımcı botu kurun",
             "BOT_TOKENI": "Botun tokenini yazın (Daha fazla yardım @BrendYardim kanalında): ",
-            "BOT_USERNAMESI": "Botun kullanıcı adını "@" simgesi koymadan yazın: ",
+            "BOT_USERNAMESI": "Botun kullanıcı adını '@' simgesi koymadan yazın: ",
             "BOTLOG": "BotLog Grubu Oluştur",
             "OPENING_BOTLOG": "(i) Grup oluşturuluyor...",
             "OPENED_BOTLOG": "(✓) Botlog başarıyla ayarlandı!",
