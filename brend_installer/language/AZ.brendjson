@@ -40,7 +40,7 @@
             "HELP_BOT": "Köməkçi botu qurun",
             "BOT_TOKENI": "Botun tokenini qeyd edin (əlavə kömək @BrendKomek kanalında): ",
             "BOT_SUCCESFULY": "(✓) Bot Token götürüldü",
-            "BOT_USERNAMESI": "Botun istifadəçi adını "@" işarəsi qoymadan daxil edin: ",
+            "BOT_USERNAMESI": "Botun istifadəçi adını '@' işarəsi qoymadan daxil edin: ",
             "HELP_BOT_SUCCESFULY": "Köməkçi bot aktivləşdirildi",
             "WHAT_YOU_WANT": "Nə etmək istəyirsiniz?",
             "CLOSE": "Çıx",
