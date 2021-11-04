@@ -180,7 +180,7 @@ if __name__ == "__main__":
                 basarili(LANG['HELP_BOT_SUCCESFULY'])
 
 
-            bilgi(f"\[1] {LANG['BOTLOG']}\n\[2] {LANG['NO_SUP']}\n\[3] {LANG['HELP_BOT']}\n\[4] {LANG['CLOSE']}")
+            bilgi(f"\[1] {LANG['BOTLOG']}\n\[2] {LANG['NO_LOG']}\n\[3] {LANG['HELP_BOT']}\n\[4] {LANG['CLOSE']}")
             
             Cevap = Prompt.ask(f"[bold yellow]{LANG['WHAT_YOU_WANT']}[/]", choices=["1", "2", "3", "4"], default="4")
         basarili("Brend Userbot qurulumu bitdi Görüşənədək!")
