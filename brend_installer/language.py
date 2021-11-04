@@ -10,7 +10,7 @@ def importlang ():
 
     if Dil == "1":
         COUNTRY = "Azerbaijan"
-        LANGUAGE = "Az"
+        LANGUAGE = "AZ"
         TZ = "Asia/Baku"
     elif Dil == "2":
         COUNTRY = "Turkey"
