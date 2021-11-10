@@ -5,8 +5,8 @@ from . import logo, console, bilgi
 def importlang ():
     console.clear()
     logo()
-    bilgi("\n\[1] Azərbaycanca\n\[2] Türkcə\n\[3] English")
-    Dil = Prompt.ask("[bold yellow]Dil seçin / Choose a language[/]", choices=["1", "2", "3"], default="1")
+    bilgi("\n\[1] Azərbaycanca\n\[2] Türkçe")
+    Dil = Prompt.ask("[bold yellow]Dil seçin[/]", choices=["1", "2"], default="1")
 
     if Dil == "1":
         COUNTRY = "Azerbaijan"
@@ -16,10 +16,6 @@ def importlang ():
         COUNTRY = "Turkey"
         LANGUAGE = "TR"
         TZ = "Europe/Istanbul"
-    elif Dil == "3":
-        COUNTRY = "United Kingdom"
-        LANGUAGE = "EN"
-        TZ = "Europe/London"
 
     return COUNTRY, LANGUAGE, TZ
 
