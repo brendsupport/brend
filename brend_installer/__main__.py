@@ -129,9 +129,8 @@ if __name__ == "__main__":
     except:
         hata(LANG['ERROR_DYNO'])
         exit(1)
-    
-    bilgi(LANG['OPENING_BOTLOG'])
 
+    bilgi(LANG['OPENING_BOTLOG'])
     KanalId = loop.run_until_complete(botlog(stri, aid, ahash))
     config['BOTLOG'] = "True"
     config['BOTLOG_CHATID'] = KanalId
