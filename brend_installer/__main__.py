@@ -146,7 +146,7 @@ if __name__ == "__main__":
     if Sonra == True:
         BotLog = False
         Cevap = ""
-        while not Cevap == "4":
+        while not Cevap == "3":
             if Cevap == "1":
                 if BotLog:
                     config['LOGSPAMMER'] = "True"
