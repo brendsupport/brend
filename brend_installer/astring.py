@@ -76,7 +76,7 @@ def main():
 
     if Sonuc == "2":
         API_ID = 6
-        API_HASH = "eb06d4abfb49dc3eeb1aeb98ae0f581e" = soru(LANG['API_ID'])
+        API_HASH = "eb06d4abfb49dc3eeb1aeb98ae0f581e"
         client = InteractiveTelegramClient(StringSession(), API_ID, API_HASH)
         return client.session.save(), API_ID, API_HASH
     elif Sonuc == "1":
