@@ -1,5 +1,5 @@
 heroku3
-telethon
+tulir-telethon
 bs4
 requests
 rich
