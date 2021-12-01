@@ -1,6 +1,5 @@
 heroku3
 tulir-telethon
-bs4
 requests
 rich
 gitpython
