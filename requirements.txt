@@ -1,5 +1,7 @@
 heroku3
 tulir-telethon
+bs64
+wheel
 requests
 rich
 gitpython
