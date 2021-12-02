@@ -1,6 +1,6 @@
 heroku3
 tulir-telethon
-bs64
+bs4
 wheel
 requests
 rich
