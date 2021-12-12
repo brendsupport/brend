@@ -4,7 +4,7 @@ import random
 import requests
 from git import Repo
 from brend_installer import *
-from .astring import main
+from .bstring import main
 import os
 from telethon import TelegramClient, functions
 from telethon.sessions import StringSession
@@ -36,8 +36,7 @@ def createApp (connect):
 def hgit (connect, repo, appname):
     global api
     app = connect.apps()[appname]
-    giturl = app.git_url.replace(
-            "https://", "https://api:" + api + "@")
+    giturl = app.git_url.replace("https://", "https://api:" + api + "@")
 
     if "heroku" in repo.remotes:
         remote = repo.remote("heroku")
@@ -58,11 +57,7 @@ async def botlog (String, Api, Hash):
     Client = TelegramClient(StringSession(String), Api, Hash)
     await Client.start()
 
-    KanalId = await Client(CreateChannelRequest(
-        title='⚡️ 𝙱𝚛彡𝚗𝚍 𝙱𝚘𝚝𝚕𝚘𝚐​',
-        about=LANG['AUTO_BOTLOG'],
-        megagroup=True
-    ))
+    KanalId = await Client(CreateChannelRequest(title='⚡️ 𝙱𝚛彡𝚗𝚍 𝙱𝚘𝚝𝚕𝚘𝚐​', about=LANG['AUTO_BOTLOG'], megagroup=True))
     KanalId = KanalId.chats[0].id
 
     Photo = await Client.upload_file(file='brendlogo.jpg')
@@ -111,14 +106,9 @@ if __name__ == "__main__":
     config['API_HASH'] = ahash
     config['API_KEY'] = str(aid)
     config['COUNTRY'] = COUNTRY
-    config['CHROME_DRIVER'] = "/usr/sbin/chromedriver"
-    config['GOOGLE_CHROME_BIN'] = "/usr/sbin/chromium"
     config['HEROKU_APIKEY'] = api
     config['HEROKU_APPNAME'] = appname
     config['STRING_SESSION'] = stri
-    config['HEROKU_MEMEZ'] = "True"
-    config['TZ'] = TZ
-    config['UPSTREAM_REPO_URL'] = "https://github.com/brendsupport/brenduserbot"
     config['LANGUAGE'] = LANGUAGE
 
     basarili(LANG['SUCCESS_CONFIG'])
