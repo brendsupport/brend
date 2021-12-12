@@ -17,7 +17,7 @@ def soru (soru):
    return console.input(f"[bold yellow]{soru}[/]")
 def logo (dil = "None"):
    surum = str(sys.version_info[0]) + "." + str(sys.version_info[1])
-   console.print(Panel(f"[bold blue]⚡️ 𝙱𝚛彡𝚗𝚍 Installer ⚡️[/]\n\n[bold cyan]Version: [/][i]4.0[/]\n[bold cyan]Python: [/][i]{surum}[/]\n[bold cyan]Dil: [/][i]{dil}[/]"), justify="center")                         
+   console.print(Panel(f"[bold blue]⚡️ 𝙱𝚛彡𝚗𝚍 Installer ⚡️[/]\n\n[bold cyan]Version: [/][i]4.5[/]\n[bold cyan]Python: [/][i]{surum}[/]\n[bold cyan]Dil: [/][i]{dil}[/]"), justify="center")                         
 def tamamlandi (saniye):
    console.print(Panel(f"[bold green]Qurulum bitdi!\n[i]Botu {round(saniye)} saniyə ərzində qurdunuz.[/]\n\n[bold green]Bir dəqiqə sonra hər hansi 1 söhbətdə .alive yazaraq yoxlaya bilərsiniz. Xeyirli olsun:)[/]"), justify="center")                         
                    
