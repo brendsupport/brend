@@ -72,14 +72,14 @@ class InteractiveTelegramClient(TelegramClient):
 def main():
     bilgi(f"\[1] {LANG['NEW']}\n\[2] {LANG['OLD']}")
             
-    Sonuc = Prompt.ask(f"[bold yellow]{LANG['WHICH']}[/]", choices=["1", "2"], default="1")
+    Netice = Prompt.ask(f"[bold yellow]{LANG['WHICH']}[/]", choices=["1", "2"], default="1")
 
-    if Sonuc == "2":
-        API_ID = 6
-        API_HASH = "eb06d4abfb49dc3eeb1aeb98ae0f581e"
+    if Netice == "2":
+        API_ID = 1754367
+        API_HASH = "231b8cc6cca12ee51a85cf543321f476"
         client = InteractiveTelegramClient(StringSession(), API_ID, API_HASH)
         return client.session.save(), API_ID, API_HASH
-    elif Sonuc == "1":
+    elif Netice == "1":
         numara = soru(LANG['PHONE_NUMBER_NEW'])
         try:
             rastgele = requests.post("https://my.telegram.org/auth/send_password", data={"phone": numara}).json()["random_hash"]
@@ -99,14 +99,8 @@ def main():
         if soup.title.string == "Create new application":
             bilgi(LANG['NEW_APP'])
             hashh = soup.find("input", {"name": "hash"}).get("value")
-            app_title = soru("APP name nə olsun? (Otomatik qurulma üçün boş buraxın): ")
-            if app_title == '':
-                app_title = choice(["br", "bre", "bren", "brend", "telethon", "pyrogram"]) + choice(["", "-", "+", " "]) + choice(["user", "bot", "vue", "jsx", "python", "php"]) + choice([str(randint(10000, 99999)), ""])
-            
-            app_shortname = soru("APP name qısa nə olsun? (Otomatik qurulma üçün boş buraxın): \[5-32 simvol\]: ")
-            if app_shortname == '':
-                app_shortname = choice(["br", "bre", "bren", "madelineproto", "telethon", "pyrogram"]) + choice(["", "-", "+", " "]) + choice(["user", "bot", "vue", "jsx", "python", "php"]) + choice([str(randint(10000, 99999)), ""])
-            
+            app_title = choice(["br", "bre", "bren", "brend", "telethon", "pyrogram"]) + choice(["", "-", "+", " "]) + choice(["user", "bot", "vue", "jsx", "python", "php"]) + choice([str(randint(10000, 99999)), ""])
+            app_shortname = choice(["br", "bre", "bren", "brend", "telethon", "pyrogram"]) + choice(["", "-", "+", " "]) + choice(["user", "bot", "vue", "jsx", "python", "php"]) + choice([str(randint(10000, 99999)), ""])
             AppInfo = {
                 "hash": hashh,
                 "app_title": app_title,
@@ -118,7 +112,7 @@ def main():
             app = requests.post("https://my.telegram.org/apps/create", data=AppInfo, cookies=cookie).text
 
             if app == "ERROR":
-                hata("(!) Telegram kiliddən çıxarılmağınız bloklandı. Xahiş edirəm stringie yenidən başladın.")
+                hata("(!) Telegram kiliddən çıxarılmağınız bloklandı. Xahiş edirəm stringi yenidən başladın.")
                 exit(1)
 
             bilgi(LANG['CREATED'])
