@@ -1,5 +1,5 @@
 heroku3>=4.2.3
-tulir-telethon
+tulir-telethon==1.25.0a1
 bs4
 wheel
 requests
