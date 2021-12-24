@@ -9,7 +9,7 @@ import os
 from telethon import TelegramClient, functions
 from telethon.sessions import StringSession
 from telethon.tl.functions.channels import EditPhotoRequest, CreateChannelRequest
-from asyncio import get_event_loop
+#from asyncio import get_event_loop
 from .language import LANG, COUNTRY, LANGUAGE, TZ
 from rich.prompt import Prompt, Confirm
 
@@ -53,23 +53,23 @@ def hgit (connect, repo, appname):
     basarili(LANG['SUCCESS_POSTGRE'])
     return app
 
-async def botlog (String, Api, Hash):
-    Client = TelegramClient(StringSession(String), Api, Hash)
-    await Client.start()
+#async def botlog (String, Api, Hash):
+ #   Client = TelegramClient(StringSession(String), Api, Hash)
+ #   await Client.start()
 
-    KanalId = await Client(CreateChannelRequest(title='⚡️ 𝙱𝚛彡𝚗𝚍 𝙱𝚘𝚝𝚕𝚘𝚐​', about=LANG['AUTO_BOTLOG'], megagroup=True))
-    KanalId = KanalId.chats[0].id
+ #   KanalId = await Client(CreateChannelRequest(title='⚡️ 𝙱𝚛彡𝚗𝚍 𝙱𝚘𝚝𝚕𝚘𝚐​', about=LANG['AUTO_BOTLOG'], megagroup=True))
+ #   KanalId = KanalId.chats[0].id
 
-    Photo = await Client.upload_file(file='brendlogo.jpg')
-    await Client(EditPhotoRequest(channel=KanalId, photo=Photo))
-    msg = await Client.send_message(KanalId, LANG['DONT_LEAVE'])
-    await msg.pin()
+ #   Photo = await Client.upload_file(file='brendlogo.jpg')
+ #   await Client(EditPhotoRequest(channel=KanalId, photo=Photo))
+ #   msg = await Client.send_message(KanalId, LANG['DONT_LEAVE'])
+ #   await msg.pin()
 
-    KanalId = str(KanalId)
-    if "-100" in KanalId:
-        return KanalId
-    else:
-        return "-100" + KanalId
+ #   KanalId = str(KanalId)
+ #   if "-100" in KanalId:
+ #       return KanalId
+ #   else:
+ #       return "-100" + KanalId
 
 if __name__ == "__main__":
     logo(LANGUAGE)
@@ -120,13 +120,13 @@ if __name__ == "__main__":
         hata(LANG['ERROR_DYNO'])
         exit(1)
 
-    bilgi(LANG['OPENING_BOTLOG'])
-    KanalId = loop.run_until_complete(botlog(stri, aid, ahash))
-    config['BOTLOG'] = "True"
-    config['BOTLOG_CHATID'] = KanalId
+ #   bilgi(LANG['OPENING_BOTLOG'])
+ #   KanalId = loop.run_until_complete(botlog(stri, aid, ahash))
+ #   config['BOTLOG'] = "True"
+ #   config['BOTLOG_CHATID'] = KanalId
 
-    basarili(LANG['OPENED_BOTLOG'])
-    BotLog = True
+ #   basarili(LANG['OPENED_BOTLOG'])
+ #   BotLog = True
 
     basarili(LANG['OPENED_DYNO'])
     basarili(LANG['SUCCESS_DEPLOY'])
@@ -134,11 +134,9 @@ if __name__ == "__main__":
 
     Sonra = Confirm.ask(f"[bold yellow]{LANG['AFTERDEPLOY']}[/]", default=True)
     if Sonra == True:
-        BotLog = False
         Cevap = ""
         while not Cevap == "3":
             if Cevap == "1":
-                if BotLog:
                     config['LOGSPAMMER'] = "True"
                     basarili(LANG['SUCCESS_LOG'])
                 else:
