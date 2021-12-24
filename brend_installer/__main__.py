@@ -73,7 +73,7 @@ def hgit (connect, repo, appname):
 
 if __name__ == "__main__":
     logo(LANGUAGE)
-    loop = get_event_loop()
+    # loop = get_event_loop()
     api = soru(LANG['HEROKU_KEY'])
     bilgi(LANG['HEROKU_KEY_LOGIN'])
     heroku = connect(api)
