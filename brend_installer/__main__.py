@@ -137,10 +137,8 @@ if __name__ == "__main__":
         Cevap = ""
         while not Cevap == "3":
             if Cevap == "1":
-                    config['LOGSPAMMER'] = "True"
-                    basarili(LANG['SUCCESS_LOG'])
-                else:
-                    hata(LANG['NEED_BOTLOG'])
+                config['LOGSPAMMER'] = "True"
+                basarili(LANG['SUCCESS_LOG'])
             elif Cevap == "2":
                 helpbot = str(soru(LANG['BOT_TOKENI']))
                 config['BOT_TOKEN'] = helpbot
