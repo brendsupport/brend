@@ -9,7 +9,7 @@ import os
 from telethon import TelegramClient, functions
 from telethon.sessions import StringSession
 from telethon.tl.functions.channels import EditPhotoRequest, CreateChannelRequest
-#from asyncio import get_event_loop
+from asyncio import get_event_loop
 from .language import LANG, COUNTRY, LANGUAGE, TZ
 from rich.prompt import Prompt, Confirm
 
@@ -20,7 +20,7 @@ def connect (api):
     try:
         heroku_conn.apps()
     except:
-        hata(LANG['INVALID_KEY'])
+        xeta(LANG['INVALID_KEY'])
         exit(1)
     return heroku_conn
 
@@ -29,7 +29,7 @@ def createApp (connect):
     try:
         connect.create_app(name=appname, stack_id_or_name='container', region_id_or_name="eu")
     except requests.exceptions.HTTPError:
-        hata(LANG['MOST_APP'])
+        xeta(LANG['MOST_APP'])
         exit(1)
     return appname
 
@@ -46,62 +46,62 @@ def hgit (connect, repo, appname):
     try:
         remote.push(refspec="HEAD:refs/heads/master", force=True)
     except Exception as e:
-        hata(LANG['ERROR'] + str(e))
+        xeta(LANG['ERROR'] + str(e))
 
     bilgi(LANG['POSTGRE'])
     app.install_addon(plan_id_or_name='062a1cc7-f79f-404c-9f91-135f70175577', config={})
     basarili(LANG['SUCCESS_POSTGRE'])
     return app
 
-#async def botlog (String, Api, Hash):
- #   Client = TelegramClient(StringSession(String), Api, Hash)
- #   await Client.start()
+async def botlog (String, Api, Hash):
+    Client = TelegramClient(StringSession(String), Api, Hash)
+    await Client.start()
 
- #   KanalId = await Client(CreateChannelRequest(title='⚡️ 𝙱𝚛彡𝚗𝚍 𝙱𝚘𝚝𝚕𝚘𝚐​', about=LANG['AUTO_BOTLOG'], megagroup=True))
- #   KanalId = KanalId.chats[0].id
+    KanalId = await Client(CreateChannelRequest(title='⚡️ 𝙱𝚛彡𝚗𝚍 𝙱𝚘𝚝𝚕𝚘𝚐​', about=LANG['AUTO_BOTLOG'], megagroup=True))
+    KanalId = KanalId.chats[0].id
 
- #   Photo = await Client.upload_file(file='brendlogo.jpg')
- #   await Client(EditPhotoRequest(channel=KanalId, photo=Photo))
- #   msg = await Client.send_message(KanalId, LANG['DONT_LEAVE'])
- #   await msg.pin()
+    Photo = await Client.upload_file(file='brendlogo.jpg')
+    await Client(EditPhotoRequest(channel=KanalId, photo=Photo))
+    msg = await Client.send_message(KanalId, LANG['DONT_LEAVE'])
+    await msg.pin()
 
- #   KanalId = str(KanalId)
- #   if "-100" in KanalId:
- #       return KanalId
- #   else:
- #       return "-100" + KanalId
+    KanalId = str(KanalId)
+    if "-100" in KanalId:
+        return KanalId
+    else:
+        return "-100" + KanalId
 
 if __name__ == "__main__":
     logo(LANGUAGE)
-    # loop = get_event_loop()
-    api = soru(LANG['HEROKU_KEY'])
+    loop = get_event_loop()
+    api = sual(LANG['HEROKU_KEY'])
     bilgi(LANG['HEROKU_KEY_LOGIN'])
     heroku = connect(api)
-    basarili(LANG['LOGGED'])
+    ela(LANG['LOGGED'])
 
     # Telegram Prosesləri #
-    onemli(LANG['GETTING_STRING_SESSION'])
+    vacib(LANG['GETTING_STRING_SESSION'])
     stri, aid, ahash = main()
-    basarili(LANG['SUCCESS_STRING'])
+    ela(LANG['SUCCESS_STRING'])
     baslangic = time()
 
     # Heroku Prosesləri #
     bilgi(LANG['CREATING_APP'])
     appname = createApp(heroku)
-    basarili(LANG['SUCCESS_APP'])
-    onemli(LANG['DOWNLOADING'])
+    ela(LANG['SUCCESS_APP'])
+    vacib(LANG['DOWNLOADING'])
 
     #Əkənin varyoxunu sikim peyser ble
     #It is forbidden to copy this code
     if os.path.isdir("./brenduserbot/"):
         rm_r("./brenduserbot/")
     repo = eval('Repo.clone_from("https://github.com/brendsupport/brenduserbot", "./brenduserbot/", branch="master")')
-    basarili(LANG['DOWNLOADED'])
-    onemli(LANG['DEPLOYING'])
+    ela(LANG['DOWNLOADED'])
+    vacib(LANG['DEPLOYING'])
     app = hgit(heroku, repo, appname)
     config = app.config()
 
-    onemli(LANG['WRITING_CONFIG'])
+    vacib(LANG['WRITING_CONFIG'])
 
     config['API_HASH'] = ahash
     config['API_KEY'] = str(aid)
@@ -111,25 +111,25 @@ if __name__ == "__main__":
     config['STRING_SESSION'] = stri
     config['LANGUAGE'] = LANGUAGE
 
-    basarili(LANG['SUCCESS_CONFIG'])
+    ela(LANG['SUCCESS_CONFIG'])
     bilgi(LANG['OPENING_DYNO'])
 
     try:
         app.process_formation()["worker"].scale(1)
     except:
-        hata(LANG['ERROR_DYNO'])
+        xeta(LANG['ERROR_DYNO'])
         exit(1)
 
- #   bilgi(LANG['OPENING_BOTLOG'])
- #   KanalId = loop.run_until_complete(botlog(stri, aid, ahash))
- #   config['BOTLOG'] = "True"
- #   config['BOTLOG_CHATID'] = KanalId
+    bilgi(LANG['OPENING_BOTLOG'])
+    KanalId = loop.run_until_complete(botlog(stri, aid, ahash))
+    config['BOTLOG'] = "True"
+    config['BOTLOG_CHATID'] = KanalId
 
- #   basarili(LANG['OPENED_BOTLOG'])
- #   BotLog = True
+    ela(LANG['OPENED_BOTLOG'])
+    BotLog = True
 
-    basarili(LANG['OPENED_DYNO'])
-    basarili(LANG['SUCCESS_DEPLOY'])
+    ela(LANG['OPENED_DYNO'])
+    ela(LANG['SUCCESS_DEPLOY'])
     tamamlandi(time() - baslangic)
 
     Sonra = Confirm.ask(f"[bold yellow]{LANG['AFTERDEPLOY']}[/]", default=True)
@@ -138,17 +138,17 @@ if __name__ == "__main__":
         while not Cevap == "3":
             if Cevap == "1":
                 config['LOGSPAMMER'] = "True"
-                basarili(LANG['SUCCESS_LOG'])
+                ela(LANG['SUCCESS_LOG'])
             elif Cevap == "2":
-                helpbot = str(soru(LANG['BOT_TOKENI']))
+                helpbot = sual(LANG['BOT_TOKENI'])
                 config['BOT_TOKEN'] = helpbot
-                basarili(LANG['BOT_SUCCESFULY'])
-                botusername = str(soru(LANG['BOT_USERNAMESI']))
+                ela(LANG['BOT_SUCCESFULY'])
+                botusername = sual(LANG['BOT_USERNAMESI'])
                 config['BOT_USERNAME'] = botusername
-                basarili(LANG['HELP_BOT_SUCCESFULY'])
+                ela(LANG['HELP_BOT_SUCCESFULY'])
 
 
             bilgi(f"\[1] {LANG['NO_LOG']}\n\[2] {LANG['HELP_BOT']}\n\[3] {LANG['CLOSE']}")
             
             Cevap = Prompt.ask(f"[bold yellow]{LANG['WHAT_YOU_WANT']}[/]", choices=["1", "2", "3"], default="3")
-        basarili("Brend Userbot qurulumu bitdi Görüşənədək!")
+        ela("Brend Userbot qurulumu bitdi Görüşənədək!")
