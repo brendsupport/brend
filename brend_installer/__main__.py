@@ -50,7 +50,7 @@ def hgit (connect, repo, appname):
 
     bilgi(LANG['POSTGRE'])
     app.install_addon(plan_id_or_name='062a1cc7-f79f-404c-9f91-135f70175577', config={})
-    basarili(LANG['SUCCESS_POSTGRE'])
+    ela(LANG['SUCCESS_POSTGRE'])
     return app
 
 async def botlog (String, Api, Hash):
@@ -134,12 +134,12 @@ if __name__ == "__main__":
 
     Sonra = Confirm.ask(f"[bold yellow]{LANG['AFTERDEPLOY']}[/]", default=True)
     if Sonra == True:
-        Cevap = ""
-        while not Cevap == "3":
-            if Cevap == "1":
+        Cavab = ""
+        while not Cavab == "3":
+            if Cavab == "1":
                 config['LOGSPAMMER'] = "True"
                 ela(LANG['SUCCESS_LOG'])
-            elif Cevap == "2":
+            elif Cavab == "2":
                 helpbot = sual(LANG['BOT_TOKENI'])
                 config['BOT_TOKEN'] = helpbot
                 ela(LANG['BOT_SUCCESFULY'])
@@ -150,5 +150,5 @@ if __name__ == "__main__":
 
             bilgi(f"\[1] {LANG['NO_LOG']}\n\[2] {LANG['HELP_BOT']}\n\[3] {LANG['CLOSE']}")
             
-            Cevap = Prompt.ask(f"[bold yellow]{LANG['WHAT_YOU_WANT']}[/]", choices=["1", "2", "3"], default="3")
+            Cavab = Prompt.ask(f"[bold yellow]{LANG['WHAT_YOU_WANT']}[/]", choices=["1", "2", "3"], default="3")
         ela("Brend Userbot qurulumu bitdi Görüşənədək!")
