@@ -5,21 +5,21 @@ import sys
 import os, shutil
 console = Console()
 
-def hata (text):
+def xeta (text):
    console.print(text, style="bold red")
 def bilgi (text):
    console.print(text, style="blue")
-def basarili (text):
+def ela (text):
    console.print(f"[bold green]{text}[/]")
-def onemli (text):
+def vacib (text):
    console.print(text, style="bold cyan")
-def soru (soru):
+def sual (soru):
    return console.input(f"[bold yellow]{soru}[/]")
 def logo (dil = "None"):
-   surum = str(sys.version_info[0]) + "." + str(sys.version_info[1])
-   console.print(Panel(f"[bold blue]⚡️ 𝙱𝚛彡𝚗𝚍 Installer ⚡️[/]\n\n[bold cyan]Version: [/][i]4.5[/]\n[bold cyan]Python: [/][i]{surum}[/]\n[bold cyan]Dil: [/][i]{dil}[/]"), justify="center")                         
+   versiya = str(sys.version_info[0]) + "." + str(sys.version_info[1])
+   console.print(Panel(f"[bold blue]⚡️ 𝙱𝚛彡𝚗𝚍 Installer ⚡️[/]\n\n[bold cyan]Version: [/][i]5.5[/]\n[bold cyan]Python: [/][i]{versiya}[/]\n[bold cyan]Dil: [/][i]{dil}[/]"), justify="center")                         
 def tamamlandi (saniye):
-   console.print(Panel(f"[bold green]Qurulum bitdi!\n[i]Botu {round(saniye)} saniyə ərzində qurdunuz.[/]\n\n[bold green]Bir dəqiqə sonra hər hansi 1 söhbətdə .alive yazaraq yoxlaya bilərsiniz. Xeyirli olsun:)[/]"), justify="center")                         
+   console.print(Panel(f"[bold green]✓ Qurulum bitdi!\n[i]UserBot {round(saniye)} saniyə ərzində quruldu.[/]\n\n[bold green]🕐 Bir dəqiqə sonra telegramda .alive yazaraq yoxlaya bilərsiniz.\nXeyirli olsun, Bizi Seçdiyiniz üçün təşəkkürlər:)[/]"), justify="center")                         
                    
 def rm_r(path):
     if not os.path.exists(path):
