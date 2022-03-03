@@ -1,11 +1,8 @@
-import heroku3
+import os, heroku3, random, requests
 from time import time
-import random
-import requests
 from git import Repo
 from brend_installer import *
 from .bstring import main
-import os
 from telethon import TelegramClient, functions
 from telethon.sessions import StringSession
 from telethon.tl.functions.channels import EditPhotoRequest, CreateChannelRequest
@@ -37,7 +34,6 @@ def hgit (connect, repo, appname):
     global api
     app = connect.apps()[appname]
     giturl = app.git_url.replace("https://", "https://api:" + api + "@")
-
     if "heroku" in repo.remotes:
         remote = repo.remote("heroku")
         remote.set_url(giturl)
@@ -47,7 +43,6 @@ def hgit (connect, repo, appname):
         remote.push(refspec="HEAD:refs/heads/master", force=True)
     except Exception as e:
         xeta(LANG['ERROR'] + str(e))
-
     bilgi(LANG['POSTGRE'])
     app.install_addon(plan_id_or_name='062a1cc7-f79f-404c-9f91-135f70175577', config={})
     ela(LANG['SUCCESS_POSTGRE'])
@@ -56,15 +51,12 @@ def hgit (connect, repo, appname):
 async def botlog (String, Api, Hash):
     Client = TelegramClient(StringSession(String), Api, Hash)
     await Client.start()
-
     KanalId = await Client(CreateChannelRequest(title='⚡️ 𝙱𝚛彡𝚗𝚍 𝙱𝚘𝚝𝚕𝚘𝚐​', about=LANG['AUTO_BOTLOG'], megagroup=True))
     KanalId = KanalId.chats[0].id
-
     Photo = await Client.upload_file(file='brendlogo.jpg')
     await Client(EditPhotoRequest(channel=KanalId, photo=Photo))
     msg = await Client.send_message(KanalId, LANG['DONT_LEAVE'])
     await msg.pin()
-
     KanalId = str(KanalId)
     if "-100" in KanalId:
         return KanalId
@@ -124,10 +116,8 @@ if __name__ == "__main__":
     KanalId = loop.run_until_complete(botlog(stri, aid, ahash))
     config['BOTLOG'] = "True"
     config['BOTLOG_CHATID'] = KanalId
-
     ela(LANG['OPENED_BOTLOG'])
     BotLog = True
-
     ela(LANG['OPENED_DYNO'])
     ela(LANG['SUCCESS_DEPLOY'])
     tamamlandi(time() - baslangic)
@@ -147,8 +137,7 @@ if __name__ == "__main__":
                 config['BOT_USERNAME'] = botusername
                 ela(LANG['HELP_BOT_SUCCESFULY'])
 
-
             bilgi(f"\[1] {LANG['NO_LOG']}\n\[2] {LANG['HELP_BOT']}\n\[3] {LANG['CLOSE']}")
             
             Cavab = Prompt.ask(f"[bold yellow]{LANG['WHAT_YOU_WANT']}[/]", choices=["1", "2", "3"], default="3")
-        ela("Brend Userbot qurulumu bitdi Görüşənədək!")
+        ela(LANG['SON'])
