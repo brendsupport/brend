@@ -3,5 +3,4 @@ Telethon==1.24.0
 bs4
 wheel
 requests
-rich
 gitpython
