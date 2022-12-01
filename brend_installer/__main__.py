@@ -5,10 +5,7 @@ from brend_installer import *
 from .bstring import main
 from telethon import TelegramClient, functions
 from telethon.sessions import StringSession
-from telethon.tl.functions.channels import EditPhotoRequest, CreateChannelRequest
-from asyncio import get_event_loop
-from .language import LANG, COUNTRY, LANGUAGE, TZ
-from rich.prompt import Prompt, Confirm
+from .language import LANG, LANGUAGE
 
 LANG = LANG['MAIN']
 
@@ -48,24 +45,9 @@ def hgit (connect, repo, appname):
     ela(LANG['SUCCESS_POSTGRE'])
     return app
 
-async def botlog (String, Api, Hash):
-    Client = TelegramClient(StringSession(String), Api, Hash)
-    await Client.start()
-    KanalId = await Client(CreateChannelRequest(title='⚡️ 𝙱𝚛彡𝚗𝚍 𝙱𝚘𝚝𝚕𝚘𝚐​', about=LANG['AUTO_BOTLOG'], megagroup=True))
-    KanalId = KanalId.chats[0].id
-    Photo = await Client.upload_file(file='brendlogo.jpg')
-    await Client(EditPhotoRequest(channel=KanalId, photo=Photo))
-    msg = await Client.send_message(KanalId, LANG['DONT_LEAVE'])
-    await msg.pin()
-    KanalId = str(KanalId)
-    if "-100" in KanalId:
-        return KanalId
-    else:
-        return "-100" + KanalId
 
 if __name__ == "__main__":
     logo(LANGUAGE)
-    loop = get_event_loop()
     api = sual(LANG['HEROKU_KEY'])
     bilgi(LANG['HEROKU_KEY_LOGIN'])
     heroku = connect(api)
@@ -73,7 +55,7 @@ if __name__ == "__main__":
 
     # Telegram Prosesləri #
     vacib(LANG['GETTING_STRING_SESSION'])
-    stri, aid, ahash = main()
+    stri = sual("Stringinizi yazın")
     ela(LANG['SUCCESS_STRING'])
     baslangic = time()
 
@@ -111,33 +93,5 @@ if __name__ == "__main__":
     except:
         xeta(LANG['ERROR_DYNO'])
         exit(1)
-
-    bilgi(LANG['OPENING_BOTLOG'])
-    KanalId = loop.run_until_complete(botlog(stri, aid, ahash))
-    config['BOTLOG'] = "True"
-    config['BOTLOG_CHATID'] = KanalId
-    ela(LANG['OPENED_BOTLOG'])
-    BotLog = True
-    ela(LANG['OPENED_DYNO'])
     ela(LANG['SUCCESS_DEPLOY'])
     tamamlandi(time() - baslangic)
-
-    Sonra = Confirm.ask(f"[bold yellow]{LANG['AFTERDEPLOY']}[/]", default=True)
-    if Sonra == True:
-        Cavab = ""
-        while not Cavab == "3":
-            if Cavab == "1":
-                config['LOGSPAMMER'] = "True"
-                ela(LANG['SUCCESS_LOG'])
-            elif Cavab == "2":
-                helpbot = sual(LANG['BOT_TOKENI'])
-                config['BOT_TOKEN'] = helpbot
-                ela(LANG['BOT_SUCCESFULY'])
-                botusername = sual(LANG['BOT_USERNAMESI'])
-                config['BOT_USERNAME'] = botusername
-                ela(LANG['HELP_BOT_SUCCESFULY'])
-
-            bilgi(f"\[1] {LANG['NO_LOG']}\n\[2] {LANG['HELP_BOT']}\n\[3] {LANG['CLOSE']}")
-            
-            Cavab = Prompt.ask(f"[bold yellow]{LANG['WHAT_YOU_WANT']}[/]", choices=["1", "2", "3"], default="3")
-        ela(LANG['SON'])
